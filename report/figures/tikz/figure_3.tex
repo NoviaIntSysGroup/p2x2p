@@ -1,0 +1,44 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+% Row 1
+\node[panel](a) {\includegraphics[]{"../matplotlib/spot_vs_ttf_prices"}};
+\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/ttf_potential"}};
+% H1
+\node[textNode, anchor=south, yshift=\vSep] (h1) at (a.north east) {\small Potential additional running hours and profits from methane as a complementary fuel};
+\draw[lineShort] (h1.west) -- (h1-|a.west);
+\draw[lineShort] (h1.east) -- (h1-|b.east);
+% H2
+\node[textNode, anchor=north, yshift=-0.5*\vSep] (h2) at (a.south east) {\small Feasible profit region with green methane as a complementary fuel};
+\draw[lineShort] (h2.west) -- (h2-|a.west);
+\draw[lineShort] (h2.east) -- (h2-|b.east);
+% Row 2
+\node[panel, anchor=north east, yshift=-\vSep](c) at (h2.south) {\includegraphics[]{"../matplotlib/profit_per_strategy_ttf"}};
+\node[panel, anchor=west](d) at (c.east) {\includegraphics[]{"../matplotlib/profits_per_year_ttf"}};
+% Row 3
+\node[panel, anchor=north](e) at (c.south) {\includegraphics[]{"../matplotlib/profit_split_per_strategy_ttf"}};
+\node[panel, anchor=north](f) at (d.south){\includegraphics[]{"../matplotlib/profit_split_per_premium_ttf"}};
+% H3
+\node[textNode, anchor=north, yshift=-0.5*\vSep] (h3) at (e.south east) {\small Running strategies for different gas premiums};
+\draw[lineShort] (h3.west) -- (h3-|a.west);
+\draw[lineShort] (h3.east) -- (h3-|b.east);
+% Row 4
+\node[panel, anchor=north, yshift=-\vSep](g) at (h3.south) {\includegraphics[]{"../matplotlib/moving_horizon_ttf_70"}};
+% Row 5
+\node[panel, anchor=north](h) at (g.south) {\includegraphics[]{"../matplotlib/moving_horizon_ttf_0"}};
+
+\node[label] at (a.north west) {\figLabel{a}};
+\node[label] at (b.north west) {\figLabel{b}};
+\node[label] at (c.north west) {\figLabel{c}};
+\node[label] at (d.north west) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
+\node[label] at (g.north west) {\figLabel{g}};
+\node[label] at (h.north west) {\figLabel{h}};
+\end{tikzpicture}
+\end{document}

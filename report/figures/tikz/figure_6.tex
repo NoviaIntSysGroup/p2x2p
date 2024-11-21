@@ -1,0 +1,59 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+% Col 1
+\node[panel](a) {\includegraphics[]{"../matplotlib/p2x_vs_x2p_spot"}};
+\node[panel, anchor=north](c) at (a.south) {\includegraphics[]{"../matplotlib/p2x_vs_x2p_spot_ttf"}};
+\node[panel, anchor=north](e) at (c.south) {\includegraphics[]{"../matplotlib/p2x_vs_x2p_spot_mfrr"}};
+\node[panel, anchor=north](g) at (e.south) {\includegraphics[]{"../matplotlib/p2x_vs_x2p_spot_ttf_mfrr"}};
+% H1
+\node[textNode, anchor=south, yshift=\vSep] (h1) at (a.north) {\small P2X$|$X2P balance};
+\draw[lineShort] (h1.west) -- (h1-|a.west);
+\draw[lineShort] (h1.east) -- (h1-|a.east);
+
+% Col 2
+\node[panel, anchor=north west](b) at (a.north east) {\includegraphics[]{"../matplotlib/flow_vs_storage_size_spot"}};
+\node[panel, anchor=north](d) at (b.south) {\includegraphics[]{"../matplotlib/flow_vs_storage_size_spot_ttf"}};
+\node[panel, anchor=north](f) at (d.south) {\includegraphics[]{"../matplotlib/flow_vs_storage_size_spot_mfrr"}};
+\node[panel, anchor=north](h) at (f.south) {\includegraphics[]{"../matplotlib/flow_vs_storage_size_spot_ttf_mfrr"}};
+% H1
+\node[textNode, anchor=south, yshift=\vSep] (h2) at (b.north) {\small Storage size};
+\draw[lineShort] (h2.west) -- (h2-|b.west);
+\draw[lineShort] (h2.east) -- (h2-|b.east);
+
+%% R1
+%\node[textNode, anchor=south, rotate=90, xshift=0cm] (r1) at (a.west) {\small Spot};
+%\draw[lineShort] (r1.east) -- (r1|-a.north);
+%\draw[lineShort] (r1.west) -- (r1|-a.south);
+%
+%% R2
+%\node[textNode, anchor=south, rotate=90, xshift=0cm] (r2) at (c.west) {\small Spot+TTF};
+%\draw[lineShort] (r2.east) -- (r2|-c.north);
+%\draw[lineShort] (r2.west) -- (r2|-c.south);
+
+\foreach \label/\name/\pos in {
+{Spot\\$\mathrm{H}_2$}/r1/a, 
+{Spot\\$\mathrm{H}_2$ \& $\mathrm{CH}_4$}/r2/c, 
+{Spot+mFRR\\$\mathrm{H}_2$}/r3/e, 
+{Spot+mFRR\\$\mathrm{H}_2$ \& $\mathrm{CH}_4$}/r4/g} 
+{
+  \node[textNode, anchor=south, rotate=90, xshift=0cm, align=center] (\name) at (\pos.west) {\small \label};
+  \draw[lineShort] (\name.east) -- (\name|- \pos.north);
+  \draw[lineShort] (\name.west) -- (\name|- \pos.south);
+}
+
+\node[label] at (a.north west) {\figLabel{a}};
+\node[label] at (b.north west) {\figLabel{b}};
+\node[label] at (c.north west) {\figLabel{c}};
+\node[label] at (d.north west) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
+\node[label] at (g.north west) {\figLabel{g}};
+\node[label] at (h.north west) {\figLabel{h}};
+\end{tikzpicture}
+\end{document}

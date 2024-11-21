@@ -1,0 +1,25 @@
+pulp
+pytz
+tqdm
+numpy
+scipy
+pyyaml
+pandas
+openpyxl
+notebook
+
+# Holidays
+workalendar
+
+# HIGHS solver
+highspy
+
+# Day-ahead spot data from entso-e
+entsoe-py
+
+#Visualization
+dash
+plotly
+kaleido
+matplotlib
+

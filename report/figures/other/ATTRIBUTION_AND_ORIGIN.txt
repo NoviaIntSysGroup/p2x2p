@@ -1,0 +1,9 @@
+AI-generated Icons
+-mast_1.png
+-mast_2.png
+-storage_1.png
+Icons originating from Flaticon.com
+-power_pylon_bw.png
+-power_pylon_color.png
+-tank_bw.png
+-tank_color.png 

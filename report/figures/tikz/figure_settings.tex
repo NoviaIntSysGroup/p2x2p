@@ -1,0 +1,21 @@
+\usetikzlibrary{shapes.geometric, arrows.meta, calc, decorations.pathmorphing}
+
+\newcommand{\unit}{1mm}
+\newcommand{\arrow}{{Latex[length=2*\unit, width=4*\unit]}}
+\newcommand{\lineWidth}{1pt}
+
+% Document sprecific variables
+\newcommand{\figFullWidth}{16cm}
+\newcommand{\figHalfWidth}{8cm}
+\newcommand{\vSep}{2mm}
+
+% Styles
+\tikzstyle{panel}=[draw=none, inner sep=0, outer sep=0]
+\tikzstyle{label}=[draw=none, anchor=north west, text height = 10pt, text depth=5pt, inner sep=0, outer sep=0, xshift=2mm, yshift=1mm]
+\tikzstyle{lines}=[draw=black, line width=\lineWidth, rounded corners=1mm]
+\tikzstyle{lineShort}=[lines, shorten > =3mm]
+\tikzstyle{boldArrow}=[draw=black, -\arrow, line width=2*\lineWidth]
+\tikzstyle{boldArrowShort}=[shorten > =3mm, shorten < =3mm]
+\tikzstyle{headingNode}=[draw=none, inner sep=1mm, text height=7pt, text depth=1pt, fill=white]
+\tikzstyle{textNode}=[draw=none, inner sep=1mm]
+\tikzstyle{labelNode}=[inner sep=0, outer sep=0, anchor=north east, xshift=7mm, yshift=-2mm]

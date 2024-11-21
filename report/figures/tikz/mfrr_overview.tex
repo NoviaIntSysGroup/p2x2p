@@ -1,0 +1,26 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+
+\node[panel](a) {\includegraphics[]{"../matplotlib/mfrr_monthly_fracs"}};
+\node[panel, anchor=north west](c) at (a.south west) {\includegraphics[]{"../matplotlib/mfrr_sequence_lengths"}};
+\node[panel, anchor=north west](e) at (c.south west) {\includegraphics[]{"../matplotlib/mfrr_vs_spot"}};
+\node[panel, anchor=north west](f) at (e.north east) {\includegraphics[]{"../matplotlib/mfrr_vs_spot_avg"}};
+\node[panel, anchor=north west](g) at (e.south west){\includegraphics[]{"../matplotlib/mfrr_overview_vol"}};
+\node[panel, anchor=west](h) at (g.east) {\includegraphics[]{"../matplotlib/mfrr_overview_price_vs_vol"}};
+
+\node[label] at (a.north west) {\figLabel{a}};
+\node[label] at (a.north) {\figLabel{b}};
+\node[label] at (c.north west) {\figLabel{c}};
+\node[label] at (c.north) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
+\node[label] at (g.north west) {\figLabel{g}};
+\node[label] at (h.north west) {\figLabel{h}};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,55 @@
+# Archive files
+*.tar
+*.zip
+*.gzip
+*.gz
+
+# Data files
+*.csv
+
+# Pickle files
+*.pkl
+
+# Generated figures
+*.pdf
+*.png
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+
+# PyCharm configuration files
+.idea
+
+# Mac file systems
+*.DS_Store
+
+# Setup.py
+.eggs
+*.egg-info
+
+# LaTeX
+*.abs
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.bst
+*.dtx
+*.fff
+*.ins
+*.lof
+*.log
+*.out
+*.spl
+*.synctex.gz
+*.toc
+*.xml
+

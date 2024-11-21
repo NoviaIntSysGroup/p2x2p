@@ -1,0 +1,40 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+\node[panel, draw=none, minimum width=8cm, minimum height=4cm] (frame){};
+
+% Storage
+%\node[panel, yshift=6mm] (storage) at (frame){\includegraphics[width=2cm]{"../other/storage_1"}};
+\node[panel, yshift=6mm, inner sep=2mm] (storage) at (frame){\includegraphics[width=1.25cm]{"../other/tank_bw"}};
+\node[panel, yshift=-1mm, anchor=south] at (storage.north) {\scriptsize $\mathrm{H}_2$ 350 MWh};
+
+% P2X
+%\node[panel, xshift=-3cm] (mast_left) at (storage){\includegraphics[width=2cm]{"../other/mast_2"}};
+\node[panel, xshift=-3cm, inner sep=0mm] (mast_left) at (storage){\includegraphics[width=2cm]{"../other/power_pylon_bw"}};
+\draw[boldArrow, draw=p2x] (mast_left) -- (storage);
+\node[panel, yshift=3mm, anchor=south] at ($(mast_left)!0.5!(storage)$) {\scriptsize P2X};
+\node[panel, yshift=-3mm, anchor=north] (p2x_p) at ($(mast_left)!0.5!(storage)$) {\scriptsize 10 MW};
+\node[panel, yshift=-3mm, anchor=north] at (p2x_p.south) {\scriptsize 70 \%};
+
+% X2P
+%\node[panel, xshift=3cm] (mast_right) at (storage){\includegraphics[width=2cm]{"../other/mast_2"}};
+\node[panel, xshift=3cm, inner sep=0mm] (mast_right) at (storage){\includegraphics[width=2cm]{"../other/power_pylon_bw"}};
+\draw[boldArrow, draw=x2p] (storage) -- (mast_right);
+\node[panel, yshift=3mm] at ($(mast_right)!0.5!(storage)$) {\scriptsize X2P};
+\node[panel, yshift=-3mm, anchor=north] (x2p_p) at ($(mast_right)!0.5!(storage)$) {\scriptsize 20 MW};
+\node[panel, yshift=-3mm, anchor=north] at (x2p_p.south) {\scriptsize 40 \%};
+
+% Additional revenue sources
+\node[textNode, yshift=10mm] (add) at (frame.south) {\scriptsize Additional revenue sources};
+\draw[lines, shorten >=4mm] (add.west) -- (add.west -| frame.south west);
+\draw[lines, shorten >=4mm] (add.east) -- (add.east -| frame.south east);
+\node[textNode, yshift=3mm, anchor=south] at ($(frame.south west)!0.5!(frame.south)$) {\scriptsize Complementary fuel ($\mathrm{CH}_4$)};
+\node[textNode, yshift=3mm, anchor=south] at ($(frame.south east)!0.5!(frame.south)$) {\scriptsize Balancing power (mFRR)};
+
+\end{tikzpicture}
+\end{document}

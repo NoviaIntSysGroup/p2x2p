@@ -1,0 +1,39 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+% Row 1
+\node[panel](a) {\includegraphics[]{"../matplotlib/profit_per_strategy"}};
+\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/profits_per_year"}};
+% H1
+\node[textNode, anchor=south, yshift=\vSep] (h1) at (a.north east) {\small Feasible profit region from spot market operations};
+\draw[lineShort] (h1.west) -- (h1-|a.west);
+\draw[lineShort] (h1.east) -- (h1-|b.east);
+% H2
+\node[textNode, anchor=north, yshift=-0.5*\vSep] (h2) at (a.south east) {\small Running strategies for varying degrees of knowledge of future prices};
+\draw[lineShort] (h2.west) -- (h2-|a.west);
+\draw[lineShort] (h2.east) -- (h2-|b.east);
+% Row 2
+\node[panel, anchor=north east, yshift=-\vSep](c) at (h2.south) {\includegraphics[]{"../matplotlib/infinite_storage_duration"}};
+\node[panel, anchor=west](d) at (c.east){\includegraphics[]{"../matplotlib/infinite_storage_profit"}};
+% Row 3
+\node[panel, anchor=north](e) at (c.south east){\includegraphics[]{"../matplotlib/infinite_horizon"}};
+% Row 4
+\node[panel, anchor=north west](f) at (e.south west){\includegraphics[]{"../matplotlib/no_horizon"}};
+% Row 5
+\node[panel, anchor=north west](g) at (f.south west){\includegraphics[]{"../matplotlib/moving_horizon"}};
+
+% Labels
+\node[label] at (a.north west) {\figLabel{a}};
+\node[label] at (b.north west) {\figLabel{b}};
+\node[label] at (c.north west) {\figLabel{c}};
+\node[label] at (d.north west) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
+\node[label] at (g.north west) {\figLabel{g}};
+\end{tikzpicture}
+\end{document}

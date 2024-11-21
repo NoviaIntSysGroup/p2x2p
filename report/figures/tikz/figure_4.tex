@@ -1,0 +1,48 @@
+\documentclass[tikz, 11pt]{standalone}
+
+\input{figure_settings.tex}
+\input{figure_fonts_and_colors}
+
+
+\begin{document}
+\begin{tikzpicture}[x=\unit, y=\unit]
+% Row 1
+\node[panel](a) {\includegraphics[]{"../matplotlib/mfrr_daily_price"}};
+%\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/spot_vs_mfrr_dist"}};
+%\node[panel, anchor=west](c) at (b.east) {\includegraphics[]{"../matplotlib/possible_profit_mfrr"}};
+\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/opportunity_costs_1d hor._ttf_70.0"}};
+\node[panel, anchor=west](c) at (b.east) {\includegraphics[]{"../matplotlib/hydrogen_flow_1d hor."}};
+% H1
+\node[textNode, anchor=south, yshift=\vSep] (h1) at (a.north east) {\small mFRR market prices and optimal sequential bidding practises};
+\draw[lineShort] (h1.west) -- (h1-|a.west);
+\draw[lineShort] (h1.east) -- (h1-|c.east);
+% H2
+\node[textNode, anchor=north, yshift=-0.5*\vSep] (h2) at (a.south east) {\small Feasible profit region when participating in both markets (spot+mFRR)};
+\draw[lineShort] (h2.west) -- (h2-|a.west);
+\draw[lineShort] (h2.east) -- (h2-|c.east);
+% Row 2
+\node[panel, anchor=north east, yshift=-\vSep](d) at (h2.south) {\includegraphics[]{"../matplotlib/profit_per_strategy_mfrr"}};
+\node[panel, anchor=west](e) at (d.east) {\includegraphics[]{"../matplotlib/profits_per_year_mfrr"}};
+% Row 3
+\node[panel, anchor=north west](f) at (d.south west) {\includegraphics[]{"../matplotlib/mfrr_infinite_horizon_bar_plot_euro"}};
+\node[panel, anchor=west](g) at (f.east) {\includegraphics[]{"../matplotlib/mfrr_infinite_horizon_x2p"}};
+% H3
+\node[textNode, anchor=north, yshift=-0.5*\vSep] (h3) at (f.south east) {\small Running strategies with and without mFRR market participation};
+\draw[lineShort] (h3.west) -- (h3-|a.west);
+\draw[lineShort] (h3.east) -- (h3-|c.east);
+% Row 4
+\node[panel, anchor=north, yshift=-\vSep, minimum width=16cm, minimum height=4cm](h) at (h3.south){\includegraphics[]{"../matplotlib/running_strategy_mfrr_0"}};
+% Row 5
+\node[panel, anchor=north, minimum width=16cm, minimum height=4cm](i) at (h.south) {\includegraphics[]{"../matplotlib/running_strategy_mfrr_1"}};
+
+\node[label] at (a.north west) {\figLabel{a}};
+\node[label] at (b.north west) {\figLabel{b}};
+\node[label] at (c.north west) {\figLabel{c}};
+\node[label] at (d.north west) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
+\node[label] at (g.north west) {\figLabel{g}};
+\node[label] at (h.north west) {\figLabel{h}};
+\node[label] at (i.north west) {\figLabel{i}};
+\end{tikzpicture}
+\end{document}

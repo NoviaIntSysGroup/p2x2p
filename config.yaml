@@ -1,0 +1,78 @@
+data_paths:
+  elspot_fi: "data/spot_prices_fi_2016_2023.csv"
+  elspot_fi_predictions: "data/spot_prices_fi_2016_2023_predictions.csv"
+  mfrr_fi: "data/mfrr_fi_price_and_volym_2016_2023.csv"
+  mfrr_frac_fi: "data/mfrr_fi_price_volym_frac_2019_2021.csv"
+  ttf_natural_gas: "data/ttf_natural_gas_2016_2023.csv"
+  best_price_limits: "data/best_price_limits.csv"
+  best_opp_costs_no_horizon: "data/best_opp_costs_no_horizon.csv"
+  best_opp_costs_moving_horizon: "data/best_opp_costs_moving_horizon.csv"
+
+project_paths:
+  plotly_figures: "report/figures/plotly/"
+  mpl_figures: "report/figures/matplotlib/"
+  strategies: "strategy_cache/"
+
+figures:
+  format: pdf
+  dpi: 600
+  page_width_cm: 16
+  panel_height_cm: 4
+  margins: {
+    left: 1.35,
+    bottom: 1.0,
+    right: 0.5,
+    top: 0.25,
+  }
+  colors: {
+    p2x: "#DC3912",
+    x2p: "#3366CC",
+    y2p: "#FF9900",
+    margin: "#109618",
+    margin2: "#990099",
+    margin3: "#316395",
+    split1: "#0099C6",
+    split2: "#DD4477",
+    mfrr_down: "#66AA00",
+    mfrr_up: "#B82E2E",
+    mfrr_new: "#9D755D",
+    zoom: [0.2, 0.2, 0.2],
+  }
+  markers: ["o", "s", "D", "p", "h"]
+
+default_params:
+  year: 2023            # year to be analyzed
+  save: True            # safe computed strategies to disk by default
+  plant: {
+    power_p2x: 10.,       # MW
+    power_x2p: 20.,       # MW
+    eff_p2x: 0.7,         # %
+    eff_x2p: 0.4,         # %
+    storage_size: 350.,   # MWh
+  }
+  strategy: {
+    name: 'no_horizon', # name of the strategy
+    n_days: 15,         # exponential moving average
+    k_p2x: 0.45,        # Charge limit
+    k_x2p: 1.85,        # Discharge limit
+    horizon: 72,        # moving horizon duration in hours
+    balanced: False,    # zero net flow over the whole price interval (spot only)
+    spot: True,         # operate on the spot market
+    ttf: False,         # use methane as a secondary fuel with TTF prices (Y2P)
+    ttf_premium: 70.,   # EUR/MWh
+    mfrr: False,        # operate on the balancing energy market (mFRR) in addition to the spot market
+    kappa_p2x: 0.,      # Multiplicative opportunity cost for P2X spot bids when also participating in the mFRR market
+    kappa_x2p: 0.,      # Multiplicative opportunity cost for X2P spot bids when also participating in the mFRR market
+  }
+
+abbreviations:
+  strategies: {
+    no_horizon: 'no hor.',
+    moving_horizon: 'nd hor.',
+    infinite_horizon: 'inf hor.',
+  }
+latex:
+  mfrr: {
+    down: 'mFRR$\!\downarrow\!\!\!$',   # define a LaTeX string and remove white space around the arrow
+    up: 'mFRR$\!\uparrow\!\!\!$',       # define a LaTeX string and remove white space around the arrow
+  }
