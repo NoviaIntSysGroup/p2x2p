@@ -52,3 +52,32 @@ def get_mfrr_data(frac=False):
 
     return mfrr_data
 
+
+def get_energy_data():
+
+    config = get_config()
+
+    file_path = config["data_paths"]["energy_data_fi"]
+    energy_data = pd.read_csv(file_path)
+
+    # Change the original dates to datetimes with time zone and daylight saving
+    # The originals are in European/Helsinki time zone. So we are simply
+    # adding that information explicitly.
+    # Convert the first and last hour to datetime
+    dt_start = datetime.fromisoformat(
+        energy_data.loc[energy_data.index[0], 'date'])
+    dt_end = datetime.fromisoformat(
+        energy_data.loc[energy_data.index[-1], 'date'])
+    # Get the hourly timestamps for the interval
+    n_hours = (dt_end.timestamp() - dt_start.timestamp()) / 3600 + 1
+    timestamps = dt_start.timestamp() + np.arange(n_hours) * 3600
+    energy_data["date"] = pd.to_datetime(timestamps, unit='s').tz_localize('UTC').tz_convert('Europe/Helsinki')
+
+    # Make sure that the energy quantities are numeric
+    for col in energy_data.columns[1:]:
+        energy_data[col] = pd.to_numeric(
+            energy_data[col],
+            errors="coerce"
+        )
+
+    return energy_data

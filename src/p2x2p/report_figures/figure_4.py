@@ -200,8 +200,8 @@ def plot_opportunity_costs_grid_search(params, overwrite=False):
     cbar = fig.colorbar(c, ax=axs[0], ticks=c_lim)
     cbar.set_label('Profit (M€)', labelpad=-10)
     # Add labels
-    axs[0].set_xlabel('$\kappa^\mathrm{X2P}$')
-    axs[0].set_ylabel('$\kappa^\mathrm{P2X}$')
+    axs[0].set_xlabel('Opp. cost ($\kappa^\mathrm{X2P}$)')
+    axs[0].set_ylabel('Opp. cost ($\kappa^\mathrm{P2X}$)', labelpad=1)
 
     mpl_helper.save_figure(fig, config['project_paths']['mpl_figures'] + f"opportunity_costs_" + utils.get_strategy_abbreviation(params_tmp) + "_ttf" + f"_{params_tmp['ttf_premium']}", 'pdf')
 

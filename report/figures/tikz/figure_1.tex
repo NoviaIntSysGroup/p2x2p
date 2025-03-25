@@ -7,15 +7,20 @@
 \begin{document}
 \begin{tikzpicture}[x=\unit, y=\unit]
 % Row 1
-\node[panel](a) {\includegraphics[]{"../matplotlib/spot_price"}};
-\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/spot_price_density"}};
+\node[panel](a) {\includegraphics[]{"../matplotlib/tot_prod_and_wind_cap"}};
+\node[panel, anchor=west](b) at (a.east) {\includegraphics[]{"../matplotlib/wind_prod_and_price_corr"}};
 % Row 2
-\node[panel, anchor=north](c) at (a.south) {\includegraphics[]{"../matplotlib/spot_price_violin"}};
-\node[panel, anchor=north, minimum width=8cm, minimum height=4cm](d) at (b.south) {\includegraphics[]{"p2x2p_system"}};
+\node[panel, anchor=north](c) at (a.south) {\includegraphics[]{"../matplotlib/spot_price"}};
+\node[panel, anchor=west](d) at (c.east) {\includegraphics[]{"../matplotlib/spot_price_density"}};
+% Row 3
+\node[panel, anchor=north](e) at (c.south) {\includegraphics[]{"../matplotlib/spot_price_violin"}};
+\node[panel, anchor=north, minimum width=8cm, minimum height=4cm](f) at (d.south) {\includegraphics[]{"p2x2p_system"}};
 
 \node[label] at (a.north west) {\figLabel{a}};
 \node[label] at (b.north west) {\figLabel{b}};
 \node[label] at (c.north west) {\figLabel{c}};
 \node[label] at (d.north west) {\figLabel{d}};
+\node[label] at (e.north west) {\figLabel{e}};
+\node[label] at (f.north west) {\figLabel{f}};
 \end{tikzpicture}
 \end{document}

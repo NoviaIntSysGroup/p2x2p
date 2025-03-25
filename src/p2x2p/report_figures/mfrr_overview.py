@@ -101,7 +101,7 @@ def plot_monthly_factions(mfrr_data):
 
     axs[1].plot(monthly_data['Month'], monthly_data['up_volyme'] * 1e-3, color=up_color, label=mfrr_up_label)
     axs[1].plot(monthly_data['Month'], monthly_data['down_volyme'] * 1e-3, color=down_color, label=mfrr_down_label)
-    axs[1].set(ylabel='Volyme (GWh)')
+    axs[1].set(ylabel='Volume (GWh)')
 
     for i in range(2):
         axs[i].legend(loc='upper left')

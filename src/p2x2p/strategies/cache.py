@@ -11,9 +11,9 @@ from p2x2p.strategies import base_strategies, utils
 
 TABLE_COLS = [
     'profit', 'spot_x_profit', 'spot_y_profit', 'mfrr_x_profit', 'mfrr_y_profit',
-    'p2x_running_frac', 'x2p_running_frac', 'y2x_running_frac',
+    'p2x_running_frac', 'x2p_running_frac', 'y2p_running_frac',
     'p2x_avg_price', 'x2p_avg_price', 'y2p_avg_price',
-    'p2x_amount', 'x2p_amount', 'y2p_usage',
+    'p2x_amount', 'x2p_amount', 'y2p_amount',
     ]
 #TABLE_COLS = ['profit']
 VALID_YEARS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]

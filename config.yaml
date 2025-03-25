@@ -4,6 +4,7 @@ data_paths:
   mfrr_fi: "data/mfrr_fi_price_and_volym_2016_2023.csv"
   mfrr_frac_fi: "data/mfrr_fi_price_volym_frac_2019_2021.csv"
   ttf_natural_gas: "data/ttf_natural_gas_2016_2023.csv"
+  energy_data_fi: "data/energy_data_fi_2016_2023.csv"
   best_price_limits: "data/best_price_limits.csv"
   best_opp_costs_no_horizon: "data/best_opp_costs_no_horizon.csv"
   best_opp_costs_moving_horizon: "data/best_opp_costs_moving_horizon.csv"
